@@ -2,8 +2,27 @@
 <Shell
     x:Class="Laboratoire04.AppShell"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:Laboratoire04.Views">
 
-    <!--  Code here  -->
+    <Shell.Resources>
+        <Style x:Key="ShellCustom" TargetType="Shell">
+            <Setter Property="Shell.BackgroundColor" Value="#333" />
+            <Setter Property="Shell.TitleColor" Value="blue" />
+            <Setter Property="Shell.UnselectedColor" Value="#d3d3d3" />
+        </Style>
+    </Shell.Resources>
+    <TabBar>
+        <ShellContent
+            Title="Liste Contact"
+            ContentTemplate="{DataTemplate views:ListContactView}"
+            Icon="user.ico"
+            Style="{StaticResource Key='ShellCustom'}" />
+        <ShellContent
+            Title="Liste voiture"
+            ContentTemplate="{DataTemplate views:ListContactView}"
+            Icon="add_user.ico"
+            Style="{StaticResource Key='ShellCustom'}" />
+    </TabBar>
 
 </Shell>
