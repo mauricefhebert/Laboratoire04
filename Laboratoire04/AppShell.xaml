@@ -19,7 +19,7 @@
             Icon="user.ico"
             Style="{StaticResource Key='ShellCustom'}" />
         <ShellContent
-            Title="Liste voiture"
+            Title="Ajouter Contact"
             ContentTemplate="{DataTemplate views:ListContactView}"
             Icon="add_user.ico"
             Style="{StaticResource Key='ShellCustom'}" />

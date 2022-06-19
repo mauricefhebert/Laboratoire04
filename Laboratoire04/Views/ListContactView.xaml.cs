@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Laboratoire04.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Laboratoire04.Views
         public ListContactView()
         {
             InitializeComponent();
+            this.BindingContext = new ListContactViewModel();
         }
     }
 }
