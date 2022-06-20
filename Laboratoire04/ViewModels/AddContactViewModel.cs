@@ -29,7 +29,7 @@ namespace Laboratoire04.ViewModels
             this.AjouterContactCmd = new Command(AddContact);
         }
 
-        public void AddContact()
+        public async void AddContact()
         {
             Contact contact = new Contact()
             {
@@ -44,7 +44,8 @@ namespace Laboratoire04.ViewModels
             };
 
             ContactDbContext.AddContact(contact);
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(contact)));
+            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(contact)));
+            await Shell.Current.GoToAsync("//ListContactView");
             
         }
     }
