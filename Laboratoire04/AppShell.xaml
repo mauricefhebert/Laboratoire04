@@ -7,7 +7,7 @@
 
     <Shell.Resources>
         <Style x:Key="ShellCustom" TargetType="Shell">
-            <Setter Property="Shell.BackgroundColor" Value="#333" />
+            <Setter Property="Shell.BackgroundColor" Value="black" />
             <Setter Property="Shell.TitleColor" Value="blue" />
             <Setter Property="Shell.UnselectedColor" Value="#d3d3d3" />
         </Style>
@@ -17,11 +17,13 @@
             Title="Liste Contact"
             ContentTemplate="{DataTemplate views:ListContactView}"
             Icon="user.ico"
+            Route="ListContactView"
             Style="{StaticResource Key='ShellCustom'}" />
         <ShellContent
             Title="Ajouter Contact"
-            ContentTemplate="{DataTemplate views:ListContactView}"
+            ContentTemplate="{DataTemplate views:AddContactView}"
             Icon="add_user.ico"
+            Route="AddContactView"
             Style="{StaticResource Key='ShellCustom'}" />
     </TabBar>
 

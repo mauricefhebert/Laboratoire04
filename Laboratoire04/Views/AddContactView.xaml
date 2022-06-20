@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Laboratoire04.Views.AddContactView"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels">
+    <ContentPage.Content>
+        <StackLayout x:DataType="viewModel:AddContactViewModel" BackgroundColor="#222">
+            <!--  Prenom  -->
+            <Entry
+                Margin="20,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Prenom"
+                PlaceholderColor="LightGray"
+                Text="{Binding Prenom}"
+                TextColor="White"
+                VerticalOptions="Center" />
+            <!--  Nom  -->
+            <Entry
+                Margin="20,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Nom"
+                PlaceholderColor="LightGray"
+                Text="{Binding Nom}"
+                TextColor="White"
+                VerticalOptions="Center" />
+            <!--  Initital  -->
+
+            <Entry
+                Margin="20,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Initial"
+                PlaceholderColor="LightGray"
+                Text="{Binding Initital}"
+                TextColor="White"
+                VerticalOptions="Center" />
+            <!--  Photo  -->
+            <Entry
+                Margin="20,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Photo"
+                PlaceholderColor="LightGray"
+                Text="{Binding Photo}"
+                TextColor="White"
+                VerticalOptions="Center" />
+            <!--  Courriel Personnel  -->
+            <Entry
+                Margin="20,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                Keyboard="Email"
+                Placeholder="Courriel Personnel"
+                PlaceholderColor="LightGray"
+                Text="{Binding CourrielPersonnel}"
+                TextColor="White"
+                VerticalOptions="Center" />
+            <!--  Courriel Travail  -->
+            <Entry
+                Margin="20,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                Keyboard="Email"
+                Placeholder="Courriel Travail"
+                PlaceholderColor="LightGray"
+                Text="{Binding CourrielTravail}"
+                TextColor="White"
+                VerticalOptions="Center" />
+            <!--  Telephone Personnel  -->
+            <Entry
+                Margin="20,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                Keyboard="Telephone"
+                Placeholder="Telephone Personnel"
+                PlaceholderColor="LightGray"
+                Text="{Binding TelephonePersonnel}"
+                TextColor="White"
+                VerticalOptions="Center" />
+            <!--  Telephone Travail  -->
+            <Entry
+                Margin="20,0,0,0"
+                HorizontalOptions="FillAndExpand"
+                Keyboard="Telephone"
+                Placeholder="Telephone Travail"
+                PlaceholderColor="LightGray"
+                Text="{Binding TelephoneTravail}"
+                TextColor="White"
+                VerticalOptions="Center" />
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Button
+                    BackgroundColor="Gray"
+                    Command="{Binding AnnulerContactCmd}"
+                    Text="Annuler" />
+                <Button
+                    BackgroundColor="green"
+                    Command="{Binding AjouterContactCmd}"
+                    Text="Ajouter" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

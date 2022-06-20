@@ -4,6 +4,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using System.IO;
 
 namespace Laboratoire04.Droid
 {
@@ -16,6 +17,17 @@ namespace Laboratoire04.Droid
 
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
+            //Define the Database name
+            string dbName = "contact_db.sqlite";
+
+            //Define the folder where the database will be store on the device
+            string folderPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+
+            //Combine the string
+            string fullPath = Path.Combine(folderPath, dbName);
+
+            //Add the fullPath variable as a parameter to LoadApplication(new App());
+            LoadApplication(new App(fullPath));
             LoadApplication(new App());
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)

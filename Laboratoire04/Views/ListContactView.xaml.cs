@@ -1,4 +1,6 @@
-﻿using Laboratoire04.ViewModels;
+﻿using Laboratoire04.Data;
+using Laboratoire04.Models;
+using Laboratoire04.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +18,14 @@ namespace Laboratoire04.Views
         public ListContactView()
         {
             InitializeComponent();
+            this.BindingContext = new ListContactViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //actualiser le binding contexte
+            this.BindingContext = null;
             this.BindingContext = new ListContactViewModel();
         }
     }
