@@ -13,7 +13,6 @@ namespace Laboratoire04.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand AjouterContactCmd { get; private set; }
-        public ICommand AnnulerContactCmd { get; private set; }
         public int Id { get; set; }
         public string Prenom { get; set; }
         public string Nom { get; set; }
@@ -46,6 +45,7 @@ namespace Laboratoire04.ViewModels
 
             ContactDbContext.AddContact(contact);
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(contact)));
+            
         }
     }
 }

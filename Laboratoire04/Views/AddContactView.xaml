@@ -5,7 +5,10 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels">
     <ContentPage.Content>
-        <StackLayout x:DataType="viewModel:AddContactViewModel" BackgroundColor="#222">
+        <StackLayout
+            x:Name="AddContactForm"
+            x:DataType="viewModel:AddContactViewModel"
+            BackgroundColor="#222">
             <!--  Prenom  -->
             <Entry
                 Margin="20,0,0,0"
@@ -84,10 +87,6 @@
                 TextColor="White"
                 VerticalOptions="Center" />
             <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                <Button
-                    BackgroundColor="Gray"
-                    Command="{Binding AnnulerContactCmd}"
-                    Text="Annuler" />
                 <Button
                     BackgroundColor="green"
                     Command="{Binding AjouterContactCmd}"

@@ -8,20 +8,26 @@
     <CollectionView x:Name="ContactListCollectionView" ItemsSource="{Binding contacts}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout>
-                    <Label
-                        Padding="10"
-                        FontAttributes="Bold"
-                        TextColor="White"
-                        VerticalTextAlignment="Center">
-                        <Label.Text>
-                            <MultiBinding StringFormat="{}{0} {1}">
-                                <Binding Path="Prenom" />
-                                <Binding Path="Nom" />
-                            </MultiBinding>
-                        </Label.Text>
-                    </Label>
-                </StackLayout>
+                <Frame
+                    Padding="10"
+                    BackgroundColor="#222"
+                    BorderColor="Black">
+                    <StackLayout VerticalOptions="Center">
+                        <Label
+                            FontAttributes="Bold"
+                            TextColor="White"
+                            VerticalTextAlignment="Center">
+                            <Label.Text>
+                                <MultiBinding StringFormat="{}{0} {1}">
+                                    <Binding Path="Prenom" />
+                                    <Binding Path="Nom" />
+                                </MultiBinding>
+                            </Label.Text>
+                        </Label>
+                        <Label Text="{Binding TelephonePersonnel}" TextColor="#d3d3d3" />
+                        <Label Text="{Binding CourrielPersonnel}" TextColor="#d3d3d3" />
+                    </StackLayout>
+                </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
