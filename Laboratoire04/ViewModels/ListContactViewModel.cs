@@ -3,14 +3,34 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using Laboratoire04.Models;
+using System.ComponentModel;
+using System.Windows.Input;
+using Xamarin.Forms;
+using Newtonsoft.Json;
 
 namespace Laboratoire04.ViewModels
 {
-    internal class ListContactViewModel
+    internal class ListContactViewModel : INotifyPropertyChanged
     {
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public ICommand TapCmd { get; set; }
+
         public List<Contact> contacts
         {
             get { return ContactDbContext.GetContacts(); }
+        }
+        public ListContactViewModel()
+        {
+
+            TapCmd = new Command(OnTap);
+        }
+
+        public async void OnTap(object obj)
+        {
+            var contact = obj as Contact;
+            var contactAsJson = JsonConvert.SerializeObject(contact);
+            await Shell.Current.GoToAsync("//DetailsContactView");
         }
     }
 }

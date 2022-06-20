@@ -3,6 +3,7 @@
     x:Class="Laboratoire04.Views.ListContactView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels"
     BackgroundColor="#333">
 
     <CollectionView x:Name="ContactListCollectionView" ItemsSource="{Binding contacts}">
@@ -27,8 +28,16 @@
                         <Label Text="{Binding TelephonePersonnel}" TextColor="#d3d3d3" />
                         <Label Text="{Binding CourrielPersonnel}" TextColor="#d3d3d3" />
                     </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:ListContactViewModel}}, Path=TapCmd}"
+                            CommandParameter="{Binding .}"
+                            NumberOfTapsRequired="1" />
+                    </Frame.GestureRecognizers>
                 </Frame>
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
 </ContentPage>
+
+<!--  Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:ListContactViewModel}}, Path=TapGestureRecognizer_Tapped}"  -->
