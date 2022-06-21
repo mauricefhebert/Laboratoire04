@@ -32,7 +32,7 @@ namespace Laboratoire04.ViewModels
             var contact = obj as Contact;
             var contactAsJson = JsonConvert.SerializeObject(contact);
             Routing.RegisterRoute(nameof(DetailsContactView), typeof(DetailsContactView));
-            await Shell.Current.GoToAsync($"{nameof(DetailsContactView)}?ContactAsJson={contactAsJson}");
+            await Shell.Current.GoToAsync($"//{nameof(DetailsContactView)}?ContactAsJson={contactAsJson}");
         }
     }
 }

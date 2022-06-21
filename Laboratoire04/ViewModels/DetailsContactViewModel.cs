@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Web;
 using Xamarin.Forms;
 
 namespace Laboratoire04.ViewModels
@@ -19,19 +20,22 @@ namespace Laboratoire04.ViewModels
             get => contactAsJson;
             set 
             {
-                contactAsJson = Uri.UnescapeDataString(value ?? string.Empty);
                 var contact = JsonConvert.DeserializeObject<Contact>(contactAsJson);
-                Prenom = contact.Prenom;
-                Nom = contact.Nom;
-                Initital = contact.Initital;
-                Photo = contact.Photo;
-                CourrielPersonnel = contact.CourrielPersonnel;
-                CourrielTravail = contact.CourrielTravail;
-                TelephonePersonnel = contact.TelephonePersonnel;
-                TelephoneTravail = contact.TelephoneTravail;
+                //Contact contact = HttpUtility.UrlDecode();
+
+                this.Id = contact.Id;
+                this.Prenom = contact.Prenom;
+                this.Nom = contact.Nom;
+                this.Initital = contact.Initital;
+                this.Photo = contact.Photo;
+                this.CourrielPersonnel = contact.CourrielPersonnel;
+                this.CourrielTravail = contact.CourrielTravail;
+                this.TelephonePersonnel = contact.TelephonePersonnel;
+                this.TelephoneTravail = contact.TelephoneTravail;
             }
         }
 
+        int _id;
         string _prenom;
         string _nom;
         string _initital;
@@ -40,7 +44,14 @@ namespace Laboratoire04.ViewModels
         string _courrielTravail;
         string _telephonePersonnel;
         string _telephoneTravail;
-        public int Id { get; set; }
+        public int Id 
+        { get { return _id; } 
+          set
+            {
+                _id = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Id"));
+            }
+        }
         public string Prenom 
         { 
             get { return _prenom; }
