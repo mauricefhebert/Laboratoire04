@@ -18,5 +18,13 @@ namespace Laboratoire04.Views
             InitializeComponent();
             this.BindingContext = new DetailsContactViewModel();
         }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            this.BindingContext = null;
+            this.BindingContext = new DetailsContactViewModel();
+        }
     }
 }

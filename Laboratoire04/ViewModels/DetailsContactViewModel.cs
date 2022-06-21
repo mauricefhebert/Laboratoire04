@@ -1,13 +1,37 @@
-﻿using System;
+﻿using Laboratoire04.Models;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Laboratoire04.ViewModels
 {
+    [QueryProperty(nameof(ContactAsJson), nameof(ContactAsJson))]
     internal class DetailsContactViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+
+        private string contactAsJson = string.Empty;
+        public string ContactAsJson
+        {
+            get => contactAsJson;
+            set 
+            {
+                contactAsJson = Uri.UnescapeDataString(value ?? string.Empty);
+                var contact = JsonConvert.DeserializeObject<Contact>(contactAsJson);
+                Prenom = contact.Prenom;
+                Nom = contact.Nom;
+                Initital = contact.Initital;
+                Photo = contact.Photo;
+                CourrielPersonnel = contact.CourrielPersonnel;
+                CourrielTravail = contact.CourrielTravail;
+                TelephonePersonnel = contact.TelephonePersonnel;
+                TelephoneTravail = contact.TelephoneTravail;
+            }
+        }
+
         string _prenom;
         string _nom;
         string _initital;
@@ -91,7 +115,7 @@ namespace Laboratoire04.ViewModels
         }
         public DetailsContactViewModel()
         {
-
+            
         }
 
         

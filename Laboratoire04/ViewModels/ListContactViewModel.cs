@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Newtonsoft.Json;
+using Laboratoire04.Views;
 
 namespace Laboratoire04.ViewModels
 {
@@ -30,7 +31,8 @@ namespace Laboratoire04.ViewModels
         {
             var contact = obj as Contact;
             var contactAsJson = JsonConvert.SerializeObject(contact);
-            await Shell.Current.GoToAsync("//DetailsContactView");
+            Routing.RegisterRoute(nameof(DetailsContactView), typeof(DetailsContactView));
+            await Shell.Current.GoToAsync($"{nameof(DetailsContactView)}?ContactAsJson={contactAsJson}");
         }
     }
 }
