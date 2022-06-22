@@ -6,90 +6,106 @@
     xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels">
     <ContentPage.Content>
         <StackLayout x:Name="AddContactForm" x:DataType="viewModel:AddContactViewModel">
-            <!--  Prenom  -->
-            <Entry
-                x:Name="Prenom"
-                Margin="20,0,0,0"
-                HorizontalOptions="FillAndExpand"
-                Placeholder="Prenom"
-                PlaceholderColor="LightGray"
-                Text="{Binding Prenom}"
-                TextColor="White"
-                VerticalOptions="Center" />
-            <!--  Nom  -->
-            <Entry
-                Margin="20,0,0,0"
-                HorizontalOptions="FillAndExpand"
-                Placeholder="Nom"
-                PlaceholderColor="LightGray"
-                Text="{Binding Nom}"
-                TextColor="White"
-                VerticalOptions="Center" />
-            <!--  Initital  -->
-
-            <Entry
-                Margin="20,0,0,0"
-                HorizontalOptions="FillAndExpand"
-                Placeholder="Initial"
-                PlaceholderColor="LightGray"
-                Text="{Binding Initital}"
-                TextColor="White"
-                VerticalOptions="Center" />
-            <!--  Photo  -->
-            <Entry
-                Margin="20,0,0,0"
-                HorizontalOptions="FillAndExpand"
-                Placeholder="Photo"
-                PlaceholderColor="LightGray"
-                Text="{Binding Photo}"
-                TextColor="White"
-                VerticalOptions="Center" />
-            <!--  Courriel Personnel  -->
-            <Entry
-                Margin="20,0,0,0"
-                HorizontalOptions="FillAndExpand"
-                Keyboard="Email"
-                Placeholder="Courriel Personnel"
-                PlaceholderColor="LightGray"
-                Text="{Binding CourrielPersonnel}"
-                TextColor="White"
-                VerticalOptions="Center" />
-            <!--  Courriel Travail  -->
-            <Entry
-                Margin="20,0,0,0"
-                HorizontalOptions="FillAndExpand"
-                Keyboard="Email"
-                Placeholder="Courriel Travail"
-                PlaceholderColor="LightGray"
-                Text="{Binding CourrielTravail}"
-                TextColor="White"
-                VerticalOptions="Center" />
-            <!--  Telephone Personnel  -->
-            <Entry
-                Margin="20,0,0,0"
-                HorizontalOptions="FillAndExpand"
-                Keyboard="Telephone"
-                Placeholder="Telephone Personnel"
-                PlaceholderColor="LightGray"
-                Text="{Binding TelephonePersonnel}"
-                TextColor="White"
-                VerticalOptions="Center" />
-            <!--  Telephone Travail  -->
-            <Entry
-                Margin="20,0,0,0"
-                HorizontalOptions="FillAndExpand"
-                Keyboard="Telephone"
-                Placeholder="Telephone Travail"
-                PlaceholderColor="LightGray"
-                Text="{Binding TelephoneTravail}"
-                TextColor="White"
-                VerticalOptions="Center" />
-            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+            <Grid
+                Margin="10"
+                ColumnDefinitions="1*,1*"
+                RowDefinitions="3*,1*,1*,1*,1*,1*,1*">
+                <!--  Photo  -->
+                <Entry
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Placeholder="Photo"
+                    Style="{StaticResource AddContactEntry}"
+                    Text="{Binding Photo}" />
+                <!--  Prenom  -->
+                <Frame
+                    Grid.Row="1"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource AddContactFrame}">
+                    <Entry
+                        x:Name="Prenom"
+                        Placeholder="Prenom"
+                        Style="{StaticResource AddContactEntry}"
+                        Text="{Binding Prenom}" />
+                </Frame>
+                <!--  Nom  -->
+                <Frame
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource AddContactFrame}">
+                    <Entry
+                        Placeholder="Nom"
+                        Style="{StaticResource AddContactEntry}"
+                        Text="{Binding Nom}" />
+                </Frame>
+                <!--  Initital  -->
+                <Frame
+                    Grid.Row="3"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource AddContactFrame}">
+                    <Entry
+                        Placeholder="Initial"
+                        Style="{StaticResource AddContactEntry}"
+                        Text="{Binding Initital}" />
+                </Frame>
+                <!--  Courriel Personnel  -->
+                <Frame
+                    Grid.Row="4"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource AddContactFrame}">
+                    <Entry
+                        Keyboard="Email"
+                        Placeholder="Courriel Personnel"
+                        Style="{StaticResource AddContactEntry}"
+                        Text="{Binding CourrielPersonnel}" />
+                </Frame>
+                <!--  Courriel Travail  -->
+                <Frame
+                    Grid.Row="5"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource AddContactFrame}">
+                    <Entry
+                        Keyboard="Email"
+                        Placeholder="Courriel Travail"
+                        Style="{StaticResource AddContactEntry}"
+                        Text="{Binding CourrielTravail}" />
+                </Frame>
+                <!--  Telephone Personnel  -->
+                <Frame
+                    Grid.Row="6"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource AddContactFrame}">
+                    <Entry
+                        Keyboard="Telephone"
+                        Placeholder="Telephone Personnel"
+                        Style="{StaticResource AddContactEntry}"
+                        Text="{Binding TelephonePersonnel}" />
+                </Frame>
+                <!--  Telephone Travail  -->
+                <Frame
+                    Grid.Row="7"
+                    Grid.ColumnSpan="2"
+                    Style="{StaticResource AddContactFrame}">
+                    <Entry
+                        Keyboard="Telephone"
+                        Placeholder="Telephone Travail"
+                        Style="{StaticResource AddContactEntry}"
+                        Text="{Binding TelephoneTravail}" />
+                </Frame>
                 <Button
-                    BackgroundColor="green"
+                    Grid.Row="8"
+                    Grid.Column="1"
+                    BackgroundColor="DodgerBlue"
                     Command="{Binding AjouterContactCmd}"
-                    Text="Ajouter" />
-            </StackLayout>
+                    Style="{StaticResource AddContactButton}"
+                    Text="Confirmer" />
+                <Button
+                    Grid.Row="8"
+                    Grid.Column="0"
+                    BackgroundColor="DimGray"
+                    Style="{StaticResource AddContactButton}"
+                    Text="Annuler" />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

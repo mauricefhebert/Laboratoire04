@@ -6,6 +6,26 @@
     <Application.Resources>
         <!--  START  -->
 
+        <Style TargetType="{x:Type Entry}">
+            <Setter Property="BackgroundColor" Value="#a8763e" />
+            <Setter Property="PlaceholderColor" Value="#e6e8e6" />
+        </Style>
+
+        <!--  Add Contact View Style  -->
+        <Style x:Key="AddContactFrame" TargetType="Frame">
+            <Setter Property="Padding" Value="7" />
+            <Setter Property="BackgroundColor" Value="#a8763e" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+        <Style x:Key="AddContactEntry" TargetType="Entry">
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="PlaceholderColor" Value="#e6e8e6" />
+        </Style>
+        <Style x:Key="AddContactButton" TargetType="Button">
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+
         <!--  END  -->
     </Application.Resources>
 </Application>
