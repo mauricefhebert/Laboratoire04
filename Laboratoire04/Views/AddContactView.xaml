@@ -3,7 +3,8 @@
     x:Class="Laboratoire04.Views.AddContactView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels">
+    xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels"
+    Style="{StaticResource ContentPageStyle}">
     <ContentPage.Content>
         <StackLayout x:Name="AddContactForm" x:DataType="viewModel:AddContactViewModel">
             <Grid
@@ -95,7 +96,7 @@
                 <Button
                     Grid.Row="8"
                     Grid.Column="1"
-                    BackgroundColor="DodgerBlue"
+                    BackgroundColor="{StaticResource CallToAction}"
                     Command="{Binding AjouterContactCmd}"
                     Style="{StaticResource AddContactButton}"
                     Text="Confirmer" />

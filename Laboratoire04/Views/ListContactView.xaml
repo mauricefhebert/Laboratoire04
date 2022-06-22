@@ -3,7 +3,8 @@
     x:Class="Laboratoire04.Views.ListContactView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels">
+    xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels"
+    Style="{StaticResource ContentPageStyle}">
 
     <CollectionView
         x:Name="ContactListCollectionView"
@@ -24,7 +25,7 @@
                                 BackgroundColor="Transparent"
                                 CornerRadius="50"
                                 HorizontalOptions="FillAndExpand">
-                                <Image Aspect="Fill" Source="{Binding Photo}" />
+                                <Image Aspect="AspectFit" Source="{Binding Photo}" />
                             </Frame>
                             <Label
                                 Grid.Row="0"

@@ -61,7 +61,7 @@ namespace Laboratoire04.ViewModels
 
         public void EditContact()
         {
-            
+
         }
     }
 }

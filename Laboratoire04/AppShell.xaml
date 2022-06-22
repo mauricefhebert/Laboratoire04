@@ -4,14 +4,6 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:Laboratoire04.Views">
-
-    <Shell.Resources>
-        <Style x:Key="ShellCustom" TargetType="Shell">
-            <Setter Property="Shell.BackgroundColor" Value="#191919" />
-            <Setter Property="Shell.TitleColor" Value="#a8763e" />
-            <Setter Property="Shell.UnselectedColor" Value="#e6e8e6" />
-        </Style>
-    </Shell.Resources>
     <TabBar>
         <ShellContent
             Title="Liste Contact"
