@@ -11,6 +11,7 @@
             BackgroundColor="#222">
             <!--  Prenom  -->
             <Entry
+                x:Name="Prenom"
                 Margin="20,0,0,0"
                 HorizontalOptions="FillAndExpand"
                 Placeholder="Prenom"

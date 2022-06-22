@@ -11,7 +11,7 @@ namespace Laboratoire04.Models
         public int Id { get; set; }
         public string Prenom { get; set; }
         public string Nom { get; set; }
-        public string Initital { get; set; }
+        public string Initial { get; set; }
         public string Photo { get; set; }
         public string CourrielPersonnel { get; set; }
         public string CourrielTravail { get; set; }

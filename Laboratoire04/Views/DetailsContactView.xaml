@@ -3,11 +3,56 @@
     x:Class="Laboratoire04.Views.DetailsContactView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            x:Name="ToolBarEditMenu"
+            Command="EditCmd"
+            Order="Primary"
+            Priority="0"
+            Text="Edit" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="test" />
-            <Label Text="{Binding Prenom}" />
-            <Label Text="{Binding Nom}" />
+            <Label Text="Prenom" />
+            <Entry
+                x:Name="Prenom"
+                Text="{Binding Prenom}"
+                TextColor="Black" />
+            <Label Text="Nom" />
+            <Entry
+                x:Name="Nom"
+                Text="{Binding Nom}"
+                TextColor="Black" />
+            <Label Text="Initial" />
+            <Entry
+                x:Name="Initial"
+                Text="{Binding Initial}"
+                TextColor="Black" />
+            <Label Text="Photo" />
+            <Entry
+                x:Name="Photo"
+                Text="{Binding Photo}"
+                TextColor="Black" />
+            <Label Text="Telephone Personnel" />
+            <Entry
+                x:Name="TelephonePersonnel"
+                Text="{Binding TelephonePersonnel}"
+                TextColor="Black" />
+            <Label Text="Telephone Travail" />
+            <Entry
+                x:Name="TelephoneTravail"
+                Text="{Binding TelephoneTravail}"
+                TextColor="Black" />
+            <Label Text="Courriel Personnel" />
+            <Entry
+                x:Name="CourrielPersonnel"
+                Text="{Binding CourrielPersonnel}"
+                TextColor="Black" />
+            <Label Text="Courriel Travail" />
+            <Entry
+                x:Name="CourrielTravail"
+                Text="{Binding CourrielTravail}"
+                TextColor="Black" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

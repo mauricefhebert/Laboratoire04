@@ -35,7 +35,7 @@ namespace Laboratoire04.ViewModels
             {
                 Prenom = this.Prenom, 
                 Nom = this.Nom, 
-                Initital = this.Initital, 
+                Initial = this.Initital, 
                 Photo = this.Photo, 
                 CourrielPersonnel = this.CourrielPersonnel, 
                 CourrielTravail = this.CourrielTravail,
