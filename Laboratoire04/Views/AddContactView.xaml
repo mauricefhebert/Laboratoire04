@@ -12,12 +12,12 @@
                 ColumnDefinitions="1*,1*"
                 RowDefinitions="3*,1*,1*,1*,1*,1*,1*">
                 <!--  Photo  -->
-                <Entry
-                    Grid.Row="0"
-                    Grid.ColumnSpan="2"
-                    Placeholder="Photo"
-                    Style="{StaticResource AddContactEntry}"
-                    Text="{Binding Photo}" />
+                <Frame Grid.Row="0" Grid.ColumnSpan="2">
+                    <Entry
+                        Placeholder="Photo"
+                        Style="{StaticResource AddContactEntry}"
+                        Text="{Binding Photo}" />
+                </Frame>
                 <!--  Prenom  -->
                 <Frame
                     Grid.Row="1"

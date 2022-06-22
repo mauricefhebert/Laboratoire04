@@ -3,6 +3,8 @@
     x:Class="Laboratoire04.Views.DetailsContactView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:viewmodels="clr-namespace:Laboratoire04.ViewModels"
+    x:DataType="viewmodels:DetailsContactViewModel"
     Style="{StaticResource ContentPageStyle}">
     <ContentPage.ToolbarItems>
         <ToolbarItem
@@ -14,15 +16,12 @@
     <ContentPage.Content>
         <Grid
             Margin="10"
-            ColumnDefinitions="1*,1*"
+            ColumnDefinitions="*,*"
             RowDefinitions="3*,1*,1*,1*,1*,1*,1*">
             <!--  Photo  -->
-            <Entry
-                Grid.Row="0"
-                Grid.ColumnSpan="2"
-                Placeholder="Photo"
-                Style="{StaticResource DetailsContactEntry}"
-                Text="{Binding Photo}" />
+            <Frame Grid.ColumnSpan="1" CornerRadius="100">
+                <Image Source="{Binding Photo}" Style="{StaticResource DetailsContactPhoto}" />
+            </Frame>
             <!--  Prenom  -->
             <Frame
                 Grid.Row="1"
@@ -51,7 +50,7 @@
                 <Entry
                     Placeholder="Initial"
                     Style="{StaticResource DetailsContactEntry}"
-                    Text="{Binding Initital}" />
+                    Text="{Binding Initial}" />
             </Frame>
             <!--  Courriel Personnel  -->
             <Frame

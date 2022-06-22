@@ -46,14 +46,16 @@
             <Setter Property="CornerRadius" Value="10" />
         </Style>
         <Style x:Key="DetailsContactEntry" TargetType="Entry">
-            <Setter Property="TextColor" Value="White" />
+            <Setter Property="TextColor" Value="{StaticResource NeutralTextDark}" />
             <Setter Property="PlaceholderColor" Value="{StaticResource NeutralTextDark}" />
-            <Setter Property="IsEnabled" Value="False" />
             <Setter Property="IsReadOnly" Value="True" />
         </Style>
         <Style x:Key="DetailsContactButton" TargetType="Button">
             <Setter Property="CornerRadius" Value="10" />
             <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style x:Key="DetailsContactPhoto" TargetType="Image">
+            <Setter Property="Aspect" Value="AspectFit" />
         </Style>
 
         <!--  Add Contact View Style  -->
