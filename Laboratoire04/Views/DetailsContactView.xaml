@@ -6,7 +6,6 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem
             x:Name="ToolBarEditMenu"
-            Command="EditCmd"
             Order="Primary"
             Priority="0"
             Text="Edit" />
@@ -56,3 +55,5 @@
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
+<!--  Command="EditCmd"  -->

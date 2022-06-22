@@ -5,13 +5,32 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels">
 
-    <CollectionView x:Name="ContactListCollectionView" ItemsSource="{Binding contacts}">
+    <CollectionView
+        x:Name="ContactListCollectionView"
+        Margin="10"
+        ItemsSource="{Binding contacts}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
-                <StackLayout>
-                    <Frame>
-                        <StackLayout>
-                            <Label>
+                <StackLayout Margin="5">
+                    <Frame BackgroundColor="#a8763e" CornerRadius="10">
+                        <Grid
+                            ColumnDefinitions="1*,3*"
+                            ColumnSpacing="10"
+                            HeightRequest="80"
+                            RowDefinitions="1*,1*,1*">
+                            <Frame
+                                Grid.RowSpan="3"
+                                Grid.Column="0"
+                                BackgroundColor="Transparent"
+                                CornerRadius="50"
+                                HorizontalOptions="FillAndExpand">
+                                <Image Aspect="Fill" Source="{Binding Photo}" />
+                            </Frame>
+                            <Label
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                FontSize="20"
+                                TextColor="#191919">
                                 <Label.Text>
                                     <MultiBinding StringFormat="{}{0} {1}">
                                         <Binding Path="Prenom" />
@@ -19,9 +38,19 @@
                                     </MultiBinding>
                                 </Label.Text>
                             </Label>
-                            <Label Text="{Binding TelephonePersonnel}" />
-                            <Label Text="{Binding CourrielPersonnel}" />
-                        </StackLayout>
+                            <Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontSize="17"
+                                Text="{Binding TelephonePersonnel}"
+                                TextColor="#e6e8e6" />
+                            <Label
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                FontSize="17"
+                                Text="{Binding CourrielPersonnel}"
+                                TextColor="#e6e8e6" />
+                        </Grid>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer
                                 Command="{Binding Source={RelativeSource AncestorType={x:Type viewModel:ListContactViewModel}}, Path=TapCmd}"

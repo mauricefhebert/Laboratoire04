@@ -5,10 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels">
     <ContentPage.Content>
-        <StackLayout
-            x:Name="AddContactForm"
-            x:DataType="viewModel:AddContactViewModel"
-            BackgroundColor="#222">
+        <StackLayout x:Name="AddContactForm" x:DataType="viewModel:AddContactViewModel">
             <!--  Prenom  -->
             <Entry
                 x:Name="Prenom"

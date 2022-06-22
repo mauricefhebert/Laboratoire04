@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,6 +17,13 @@ namespace Laboratoire04.Views
         {
             InitializeComponent();
             this.BindingContext = new DetailsContactViewModel();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            this.BindingContext = null;
+            this.BindingContext = new DetailsContactViewModel() ?? null;
         }
     }
 }

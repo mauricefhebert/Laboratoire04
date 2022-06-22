@@ -7,9 +7,9 @@
 
     <Shell.Resources>
         <Style x:Key="ShellCustom" TargetType="Shell">
-            <Setter Property="Shell.BackgroundColor" Value="black" />
-            <Setter Property="Shell.TitleColor" Value="blue" />
-            <Setter Property="Shell.UnselectedColor" Value="#d3d3d3" />
+            <Setter Property="Shell.BackgroundColor" Value="#191919" />
+            <Setter Property="Shell.TitleColor" Value="#a8763e" />
+            <Setter Property="Shell.UnselectedColor" Value="#e6e8e6" />
         </Style>
     </Shell.Resources>
     <TabBar>

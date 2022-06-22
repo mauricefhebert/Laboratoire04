@@ -6,12 +6,6 @@
     <Application.Resources>
         <!--  START  -->
 
-        <!--  Implicite style  -->
-        <Style TargetType="{x:Type Label}">
-            <Setter Property="TextColor" Value="black" />
-        </Style>
-
-
         <!--  END  -->
     </Application.Resources>
 </Application>
