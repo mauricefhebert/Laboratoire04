@@ -6,9 +6,34 @@
     <Application.Resources>
         <!--  START  -->
 
-        <Style TargetType="{x:Type Entry}">
+        <!--  List Contact View Style  -->
+        <Style x:Key="ListContactFrame" TargetType="Frame">
             <Setter Property="BackgroundColor" Value="#a8763e" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+        <Style x:Key="ListContactLabelPrimary" TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="TextColor" Value="#191919" />
+        </Style>
+        <Style x:Key="ListContactLabelSecondary" TargetType="Label">
+            <Setter Property="FontSize" Value="17" />
+            <Setter Property="TextColor" Value="#e6e8e6" />
+        </Style>
+
+        <!--  Contact Details View Style  -->
+        <Style x:Key="DetailsContactFrame" TargetType="Frame">
+            <Setter Property="Padding" Value="7" />
+            <Setter Property="BackgroundColor" Value="#a8763e" />
+            <Setter Property="CornerRadius" Value="10" />
+        </Style>
+        <Style x:Key="DetailsContactEntry" TargetType="Entry">
+            <Setter Property="TextColor" Value="White" />
             <Setter Property="PlaceholderColor" Value="#e6e8e6" />
+            <Setter Property="IsEnabled" Value="False" />
+        </Style>
+        <Style x:Key="DetailsContactButton" TargetType="Button">
+            <Setter Property="CornerRadius" Value="10" />
+            <Setter Property="TextColor" Value="White" />
         </Style>
 
         <!--  Add Contact View Style  -->

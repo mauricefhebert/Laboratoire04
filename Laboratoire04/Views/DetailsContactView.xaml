@@ -11,48 +11,93 @@
             Text="Edit" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Prenom" />
+        <Grid
+            Margin="10"
+            ColumnDefinitions="1*,1*"
+            RowDefinitions="3*,1*,1*,1*,1*,1*,1*">
+            <!--  Photo  -->
             <Entry
-                x:Name="Prenom"
-                Text="{Binding Prenom}"
-                TextColor="Black" />
-            <Label Text="Nom" />
-            <Entry
-                x:Name="Nom"
-                Text="{Binding Nom}"
-                TextColor="Black" />
-            <Label Text="Initial" />
-            <Entry
-                x:Name="Initial"
-                Text="{Binding Initial}"
-                TextColor="Black" />
-            <Label Text="Photo" />
-            <Entry
-                x:Name="Photo"
-                Text="{Binding Photo}"
-                TextColor="Black" />
-            <Label Text="Telephone Personnel" />
-            <Entry
-                x:Name="TelephonePersonnel"
-                Text="{Binding TelephonePersonnel}"
-                TextColor="Black" />
-            <Label Text="Telephone Travail" />
-            <Entry
-                x:Name="TelephoneTravail"
-                Text="{Binding TelephoneTravail}"
-                TextColor="Black" />
-            <Label Text="Courriel Personnel" />
-            <Entry
-                x:Name="CourrielPersonnel"
-                Text="{Binding CourrielPersonnel}"
-                TextColor="Black" />
-            <Label Text="Courriel Travail" />
-            <Entry
-                x:Name="CourrielTravail"
-                Text="{Binding CourrielTravail}"
-                TextColor="Black" />
-        </StackLayout>
+                Grid.Row="0"
+                Grid.ColumnSpan="2"
+                Placeholder="Photo"
+                Style="{StaticResource DetailsContactEntry}"
+                Text="{Binding Photo}" />
+            <!--  Prenom  -->
+            <Frame
+                Grid.Row="1"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource DetailsContactFrame}">
+                <Entry
+                    x:Name="Prenom"
+                    Placeholder="Prenom"
+                    Style="{StaticResource DetailsContactEntry}"
+                    Text="{Binding Prenom}" />
+            </Frame>
+            <!--  Nom  -->
+            <Frame
+                Grid.Row="2"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource DetailsContactFrame}">
+                <Entry
+                    Placeholder="Nom"
+                    Style="{StaticResource DetailsContactEntry}"
+                    Text="{Binding Nom}" />
+            </Frame>
+            <!--  Initital  -->
+            <Frame
+                Grid.Row="3"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource DetailsContactFrame}">
+                <Entry
+                    Placeholder="Initial"
+                    Style="{StaticResource DetailsContactEntry}"
+                    Text="{Binding Initital}" />
+            </Frame>
+            <!--  Courriel Personnel  -->
+            <Frame
+                Grid.Row="4"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource DetailsContactFrame}">
+                <Entry
+                    Keyboard="Email"
+                    Placeholder="Courriel Personnel"
+                    Style="{StaticResource DetailsContactEntry}"
+                    Text="{Binding CourrielPersonnel}" />
+            </Frame>
+            <!--  Courriel Travail  -->
+            <Frame
+                Grid.Row="5"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource DetailsContactFrame}">
+                <Entry
+                    Keyboard="Email"
+                    Placeholder="Courriel Travail"
+                    Style="{StaticResource DetailsContactEntry}"
+                    Text="{Binding CourrielTravail}" />
+            </Frame>
+            <!--  Telephone Personnel  -->
+            <Frame
+                Grid.Row="6"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource DetailsContactFrame}">
+                <Entry
+                    Keyboard="Telephone"
+                    Placeholder="Telephone Personnel"
+                    Style="{StaticResource DetailsContactEntry}"
+                    Text="{Binding TelephonePersonnel}" />
+            </Frame>
+            <!--  Telephone Travail  -->
+            <Frame
+                Grid.Row="7"
+                Grid.ColumnSpan="2"
+                Style="{StaticResource DetailsContactFrame}">
+                <Entry
+                    Keyboard="Telephone"
+                    Placeholder="Telephone Travail"
+                    Style="{StaticResource DetailsContactEntry}"
+                    Text="{Binding TelephoneTravail}" />
+            </Frame>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
 

@@ -12,7 +12,7 @@
         <CollectionView.ItemTemplate>
             <DataTemplate>
                 <StackLayout Margin="5">
-                    <Frame BackgroundColor="#a8763e" CornerRadius="10">
+                    <Frame Style="{StaticResource ListContactFrame}">
                         <Grid
                             ColumnDefinitions="1*,3*"
                             ColumnSpacing="10"
@@ -29,8 +29,7 @@
                             <Label
                                 Grid.Row="0"
                                 Grid.Column="1"
-                                FontSize="20"
-                                TextColor="#191919">
+                                Style="{StaticResource ListContactLabelPrimary}">
                                 <Label.Text>
                                     <MultiBinding StringFormat="{}{0} {1}">
                                         <Binding Path="Prenom" />
@@ -41,15 +40,13 @@
                             <Label
                                 Grid.Row="1"
                                 Grid.Column="1"
-                                FontSize="17"
-                                Text="{Binding TelephonePersonnel}"
-                                TextColor="#e6e8e6" />
+                                Style="{StaticResource ListContactLabelSecondary}"
+                                Text="{Binding TelephonePersonnel}" />
                             <Label
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                FontSize="17"
-                                Text="{Binding CourrielPersonnel}"
-                                TextColor="#e6e8e6" />
+                                Style="{StaticResource ListContactLabelSecondary}"
+                                Text="{Binding CourrielPersonnel}" />
                         </Grid>
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer
