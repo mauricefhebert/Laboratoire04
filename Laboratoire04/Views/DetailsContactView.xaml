@@ -9,6 +9,7 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem
             x:Name="ToolBarEditMenu"
+            Command="{Binding EditCmd}"
             Order="Primary"
             Priority="0"
             Text="Edit" />
@@ -17,7 +18,7 @@
         <Grid
             Margin="10"
             ColumnDefinitions="*,*"
-            RowDefinitions="3*,1*,1*,1*,1*,1*,1*">
+            RowDefinitions="3*,1*,1*,1*,1*,1*">
             <!--  Photo  -->
             <Frame Grid.ColumnSpan="1" CornerRadius="100">
                 <Image Source="{Binding Photo}" Style="{StaticResource DetailsContactPhoto}" />

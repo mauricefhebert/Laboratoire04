@@ -132,12 +132,11 @@ namespace Laboratoire04.ViewModels
         public DetailsContactViewModel()
         {
             EditCmd = new Command(EditContact);
-            
         }
 
         public void EditContact()
         {
-
+            Application.Current.MainPage.DisplayAlert("Info", "Test", "Ok");
         }
 
         public void OnProperyChanged([CallerMemberName] string propertyName = null)
