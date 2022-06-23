@@ -12,10 +12,8 @@ using Laboratoire04.Views;
 
 namespace Laboratoire04.ViewModels
 {
-    internal class ListContactViewModel : INotifyPropertyChanged
+    internal class ListContactViewModel
     {
-
-        public event PropertyChangedEventHandler PropertyChanged;
         public ICommand TapCmd { get; set; }
 
         public ListContactViewModel()

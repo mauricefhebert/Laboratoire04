@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels"
+    Title="Ajouter un contact"
     Style="{StaticResource ContentPageStyle}">
     <ContentPage.Content>
         <ScrollView>
@@ -12,75 +13,73 @@
                 Margin="10"
                 x:DataType="viewModel:AddContactViewModel">
                 <!--  Photo  -->
-                <Frame
-                    CornerRadius="100"
-                    HeightRequest="100"
-                    HorizontalOptions="Center"
-                    WidthRequest="100">
-                    <Image Source="{Binding Photo}" Style="{StaticResource DetailsContactPhoto}" />
+                <Frame Style="{StaticResource roundedFrame}">
+                    <Image Source="{Binding Photo}" />
                 </Frame>
-                <Button Command="{Binding UploadImageCmd}" Text="Choisir une image..." />
+                <Button
+                    Command="{Binding UploadImageCmd}"
+                    CornerRadius="10"
+                    Text="Choisir une image..." />
                 <!--  Prenom  -->
-                <Frame Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource ContactFrame}">
                     <Entry
                         Keyboard="Default"
                         Placeholder="Prenom"
-                        Style="{StaticResource AddContactEntry}"
+                        Style="{StaticResource ContactEntry}"
                         Text="{Binding Prenom}" />
                 </Frame>
                 <!--  Nom  -->
-                <Frame Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource ContactFrame}">
                     <Entry
                         Keyboard="Default"
                         Placeholder="Nom"
-                        Style="{StaticResource AddContactEntry}"
+                        Style="{StaticResource ContactEntry}"
                         Text="{Binding Nom}" />
                 </Frame>
                 <!--  Initital  -->
-                <Frame Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource ContactFrame}">
                     <Entry
                         Keyboard="Default"
                         Placeholder="Initial"
-                        Style="{StaticResource AddContactEntry}"
+                        Style="{StaticResource ContactEntry}"
                         Text="{Binding Initital}" />
                 </Frame>
                 <!--  Courriel Personnel  -->
-                <Frame Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource ContactFrame}">
                     <Entry
                         Keyboard="Email"
                         Placeholder="Courriel Personnel"
-                        Style="{StaticResource AddContactEntry}"
+                        Style="{StaticResource ContactEntry}"
                         Text="{Binding CourrielPersonnel}" />
                 </Frame>
                 <!--  Courriel Travail  -->
-                <Frame Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource ContactFrame}">
                     <Entry
                         Keyboard="Email"
                         Placeholder="Courriel Travail"
-                        Style="{StaticResource AddContactEntry}"
+                        Style="{StaticResource ContactEntry}"
                         Text="{Binding CourrielTravail}" />
                 </Frame>
                 <!--  Telephone Personnel  -->
-                <Frame Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource ContactFrame}">
                     <Entry
                         Keyboard="Telephone"
                         Placeholder="Telephone Personnel"
-                        Style="{StaticResource AddContactEntry}"
+                        Style="{StaticResource ContactEntry}"
                         Text="{Binding TelephonePersonnel}" />
                 </Frame>
                 <!--  Telephone Travail  -->
-                <Frame Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource ContactFrame}">
                     <Entry
                         Keyboard="Telephone"
                         Placeholder="Telephone Travail"
-                        Style="{StaticResource AddContactEntry}"
+                        Style="{StaticResource ContactEntry}"
                         Text="{Binding TelephoneTravail}" />
                 </Frame>
                 <Button
                     Grid.Column="1"
-                    BackgroundColor="{StaticResource CallToAction}"
                     Command="{Binding AjouterContactCmd}"
-                    Style="{StaticResource AddContactButton}"
+                    Style="{StaticResource PrimaryButton}"
                     Text="Confirmer" />
             </StackLayout>
         </ScrollView>
