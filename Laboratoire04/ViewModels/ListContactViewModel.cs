@@ -24,7 +24,7 @@ namespace Laboratoire04.ViewModels
 
             if (ContactDbContext.GetContacts().Count == 0)
             {
-                ContactDbContext.AddContact(new Contact()
+                ContactDbContext.SeedDatabase(new Contact()
                 {
                     Prenom = "Prenom 01",
                     Nom = "Nom 01",
@@ -35,7 +35,7 @@ namespace Laboratoire04.ViewModels
                     CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
                     CourrielTravail = "CourrielTravail01@hotmail.com"
                 });
-                ContactDbContext.AddContact(new Contact()
+                ContactDbContext.SeedDatabase(new Contact()
                 {
                     Prenom = "Prenom 01",
                     Nom = "Nom 01",
@@ -46,7 +46,7 @@ namespace Laboratoire04.ViewModels
                     CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
                     CourrielTravail = "CourrielTravail01@hotmail.com"
                 });
-                ContactDbContext.AddContact(new Contact()
+                ContactDbContext.SeedDatabase(new Contact()
                 {
                     Prenom = "Prenom 01",
                     Nom = "Nom 01",
@@ -57,7 +57,7 @@ namespace Laboratoire04.ViewModels
                     CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
                     CourrielTravail = "CourrielTravail01@hotmail.com"
                 });
-                ContactDbContext.AddContact(new Contact()
+                ContactDbContext.SeedDatabase(new Contact()
                 {
                     Prenom = "Prenom 01",
                     Nom = "Nom 01",
@@ -68,7 +68,7 @@ namespace Laboratoire04.ViewModels
                     CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
                     CourrielTravail = "CourrielTravail01@hotmail.com"
                 });
-                ContactDbContext.AddContact(new Contact()
+                ContactDbContext.SeedDatabase(new Contact()
                 {
                     Prenom = "Prenom 01",
                     Nom = "Nom 01",
@@ -79,7 +79,7 @@ namespace Laboratoire04.ViewModels
                     CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
                     CourrielTravail = "CourrielTravail01@hotmail.com"
                 });
-                ContactDbContext.AddContact(new Contact()
+                ContactDbContext.SeedDatabase(new Contact()
                 {
                     Prenom = "Prenom 01",
                     Nom = "Nom 01",

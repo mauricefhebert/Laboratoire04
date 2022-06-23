@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using SQLite;
+using Xamarin.Forms;
 
 namespace Laboratoire04.Models
 {

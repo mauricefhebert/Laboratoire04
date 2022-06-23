@@ -24,9 +24,11 @@
                     WidthRequest="100">
                     <Image Source="{Binding Photo}" Style="{StaticResource DetailsContactPhoto}" />
                 </Frame>
+                <Button Command="{Binding UploadImageCmd}" Text="Choisir une image..." />
                 <!--  Prenom  -->
                 <Frame Style="{StaticResource DetailsContactFrame}">
                     <Entry
+                        Keyboard="Default"
                         Placeholder="Prenom"
                         Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding Prenom}" />
@@ -34,6 +36,7 @@
                 <!--  Nom  -->
                 <Frame Style="{StaticResource DetailsContactFrame}">
                     <Entry
+                        Keyboard="Default"
                         Placeholder="Nom"
                         Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding Nom}" />
@@ -41,6 +44,7 @@
                 <!--  Initital  -->
                 <Frame Style="{StaticResource DetailsContactFrame}">
                     <Entry
+                        Keyboard="Default"
                         Placeholder="Initial"
                         Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding Initial}" />
@@ -77,19 +81,11 @@
                         Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding TelephoneTravail}" />
                 </Frame>
-                <Grid ColumnDefinitions="*,*">
-                    <Button
-                        Grid.Column="1"
-                        BackgroundColor="{StaticResource CallToAction}"
-                        Command="{Binding UpdateContactCmd}"
-                        Style="{StaticResource AddContactButton}"
-                        Text="Confirmer" />
-                    <Button
-                        Grid.Column="0"
-                        BackgroundColor="DimGray"
-                        Style="{StaticResource AddContactButton}"
-                        Text="Annuler" />
-                </Grid>
+                <Button
+                    BackgroundColor="{StaticResource CallToAction}"
+                    Command="{Binding UpdateContactCmd}"
+                    Style="{StaticResource AddContactButton}"
+                    Text="Confirmer" />
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

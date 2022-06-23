@@ -69,13 +69,13 @@ namespace Laboratoire04.ViewModels
             }
         }
 
-        private string photo;
-        public string Photo
+        private ImageSource photo;
+        public ImageSource Photo
         {
             get { return photo; }
             set
             {
-                if (value == null || value == string.Empty)
+                if (value == null)
                 {
                     photo = @"https://placebear.com/640/360";
                 }
@@ -128,13 +128,13 @@ namespace Laboratoire04.ViewModels
         }
 
         public ICommand EditContactCmd { get; set; }
-
+        //Recupere le contact utiliser avec l'interface IQueryAttributable
         public void ApplyQueryAttributes(IDictionary<string, string> query)
         {
             string id = HttpUtility.UrlDecode(query["Id"]);
             LoadContact(id);
         }
-
+        //Charge le contact method utiliser avec l'interface IQueryAttributable
         void LoadContact(string id)
         {
             contact = ContactDbContext.GetContacts().Find(c => c.Id == int.Parse(id));
@@ -156,11 +156,11 @@ namespace Laboratoire04.ViewModels
 
         private async void EditContact()
         {
-            //need contact id
             Routing.RegisterRoute(nameof(UpdateContactView), typeof(UpdateContactView));
             await Shell.Current.GoToAsync($"{nameof(UpdateContactView)}?Id={contact.Id}");
         }
 
+        //Permet l'utilisation de PropertyChanged sans specifier la proprieter a changer
         public void OnProperyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

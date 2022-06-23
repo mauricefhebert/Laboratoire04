@@ -41,9 +41,24 @@ namespace Laboratoire04.Data
 
                 //Notify the user of success or failure
                 if (rowsAffected > 0)
-                    Application.Current.MainPage.DisplayAlert("Success", "Contact successfully inserted", "Ok");
+                    Application.Current.MainPage.DisplayAlert("Success", "Le contact à été ajouter avec succes", "Ok");
                 else
-                    Application.Current.MainPage.DisplayAlert("Failure", "Contact failed to be inserted", "Ok");
+                    Application.Current.MainPage.DisplayAlert("Failure", "Erreur lors de l'ajout du contact", "Ok");
+            }
+        }
+
+        // Cette method est seulement utiliser pour remplir la base de données si elle est vide
+        public static void SeedDatabase(Contact contact)
+        {
+
+            //Create a new connection to the database the constructor take the Database location that we defined in the App.cs
+            using (SQLiteConnection cn = new SQLiteConnection(App.DatabaseLocation))
+            {
+                //Create a new table of the type of the model's
+                cn.CreateTable<Contact>();
+
+                //Insert into the database the parameter is the object we want to insert
+                cn.Insert(contact);
             }
         }
     }

@@ -8,7 +8,9 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Web;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
+using Contact = Laboratoire04.Models.Contact;
 
 namespace Laboratoire04.ViewModels
 {
@@ -64,7 +66,7 @@ namespace Laboratoire04.ViewModels
             get { return photo; }
             set
             {
-                if (value == null || value == string.Empty)
+                if (value == null)
                 {
                     photo = @"https://placebear.com/640/360";
                 }
@@ -118,11 +120,13 @@ namespace Laboratoire04.ViewModels
 
         public ICommand UpdateContactCmd { get; set; }
         public ICommand SupprimerContactCmd { get; set; }
+        public ICommand UploadImageCmd { get; set; }
 
         public UpdateContactViewModel()
         {
             UpdateContactCmd = new Command(UpdateContact);
             SupprimerContactCmd = new Command(SupprimerContact);
+            this.UploadImageCmd = new Command(ImagePicker);
         }
 
         private async void SupprimerContact()
@@ -142,9 +146,9 @@ namespace Laboratoire04.ViewModels
 
                     //Notify the user of success or failure
                     if (rowsAffected > 0)
-                        await Application.Current.MainPage.DisplayAlert("Success", "Contact successfully deleted", "Ok");
+                        await Application.Current.MainPage.DisplayAlert("Success", "Le contact à été supprimer", "Ok");
                     else
-                        await Application.Current.MainPage.DisplayAlert("Failure", "Contact failed to be deleted", "Ok");
+                        await Application.Current.MainPage.DisplayAlert("Failure", "Le contact n'a pu etre supprimer", "Ok");
                 }
                 await Shell.Current.Navigation.PopToRootAsync();
             }
@@ -176,20 +180,22 @@ namespace Laboratoire04.ViewModels
 
                 //Notify the user of success or failure
                 if (rowsAffected > 0)
-                    await Application.Current.MainPage.DisplayAlert("Success", "Contact successfully updated", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Success", "Le contact à été modifier avec success", "Ok");
                 else
-                    await Application.Current.MainPage.DisplayAlert("Failure", "Contact failed to be updated", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Failure", "Le contact n'a pu etre modifier", "Ok");
                 }
             await Shell.Current.Navigation.PopAsync();
             }
         }
 
+        //Recupere le contact utiliser avec l'interface IQueryAttributable
         public void ApplyQueryAttributes(IDictionary<string, string> query)
         {
             string id = HttpUtility.UrlDecode(query["Id"]);
             LoadContact(id);
         }
 
+        //Charge le contact method utiliser avec l'interface IQueryAttributable
         void LoadContact(string id)
         {
             Contact contact = ContactDbContext.GetContacts().Find(c => c.Id == int.Parse(id));
@@ -204,6 +210,22 @@ namespace Laboratoire04.ViewModels
             this.CourrielTravail = contact.CourrielTravail;
         }
 
+        //Method pour ajouter une image avec les photo du telephone
+        private async void ImagePicker(object obj)
+        {
+            var pickResult = await FilePicker.PickAsync(new PickOptions
+            {
+                FileTypes = FilePickerFileType.Images,
+                PickerTitle = "Choisir une image"
+            });
+
+            if (pickResult != null)
+            {
+                var stream = pickResult.FullPath;
+                this.Photo = stream;
+            }
+        }
+        //Permet l'utilisation de PropertyChanged sans specifier la proprieter a changer
         public void OnProperyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

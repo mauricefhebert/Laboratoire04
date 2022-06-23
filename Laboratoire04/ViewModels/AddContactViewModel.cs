@@ -6,7 +6,9 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
+using Contact = Laboratoire04.Models.Contact;
 
 namespace Laboratoire04.ViewModels
 {
@@ -14,6 +16,7 @@ namespace Laboratoire04.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand AjouterContactCmd { get; private set; }
+        public ICommand UploadImageCmd { get; set; }
         public int Id { get; set; }
         public string Prenom { get; set; }
         public string Nom { get; set; }
@@ -24,7 +27,7 @@ namespace Laboratoire04.ViewModels
             get { return photo; }
             set
             {
-                if (value == null || value == string.Empty)
+                if (value == null)
                 {
                     photo = @"https://placebear.com/640/360";
                 }
@@ -44,6 +47,22 @@ namespace Laboratoire04.ViewModels
         public AddContactViewModel()
         {
             this.AjouterContactCmd = new Command(AddContact);
+            this.UploadImageCmd = new Command(ImagePicker);
+        }
+
+        private async void ImagePicker(object obj)
+        {
+            var pickResult = await FilePicker.PickAsync(new PickOptions
+            {
+                FileTypes = FilePickerFileType.Images,
+                PickerTitle = "Choisir une image"
+            });
+
+            if(pickResult != null)
+            {
+                var stream = pickResult.FullPath;
+                this.Photo = stream;
+            }
         }
 
         public async void AddContact()
@@ -53,7 +72,7 @@ namespace Laboratoire04.ViewModels
                 Prenom = this.Prenom, 
                 Nom = this.Nom, 
                 Initial = this.Initital, 
-                Photo = this.Photo, 
+                Photo = this.Photo.ToString(), 
                 CourrielPersonnel = this.CourrielPersonnel, 
                 CourrielTravail = this.CourrielTravail,
                 TelephonePersonnel = this.TelephonePersonnel,
@@ -61,10 +80,10 @@ namespace Laboratoire04.ViewModels
             };
 
             ContactDbContext.AddContact(contact);
-            //PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(contact)));
             await Shell.Current.GoToAsync("//ListContactView");
             
         }
+        //Permet l'utilisation de PropertyChanged sans specifier la proprieter a changer
         public void OnProperyChanged([CallerMemberName] string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
