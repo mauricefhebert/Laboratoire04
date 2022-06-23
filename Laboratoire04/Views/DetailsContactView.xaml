@@ -9,13 +9,14 @@
     <ContentPage.ToolbarItems>
         <ToolbarItem
             x:Name="ToolBarEditMenu"
-            Command="{Binding EditCmd}"
+            Clicked="ToolBarEditMenu_Clicked"
             Order="Primary"
             Priority="0"
             Text="Edit" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <Grid
+            x:Name="DetailsContactContainerGrid"
             Margin="10"
             ColumnDefinitions="*,*"
             RowDefinitions="3*,1*,1*,1*,1*,1*">

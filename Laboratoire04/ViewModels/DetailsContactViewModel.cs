@@ -1,5 +1,6 @@
 ﻿using Laboratoire04.Data;
 using Laboratoire04.Models;
+using Laboratoire04.Views;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -107,7 +108,6 @@ namespace Laboratoire04.ViewModels
                 OnProperyChanged();
             }
         }
-        public ICommand EditCmd { get; set; }
 
         public void ApplyQueryAttributes(IDictionary<string, string> query)
         {
@@ -131,12 +131,6 @@ namespace Laboratoire04.ViewModels
 
         public DetailsContactViewModel()
         {
-            EditCmd = new Command(EditContact);
-        }
-
-        public void EditContact()
-        {
-            Application.Current.MainPage.DisplayAlert("Info", "Test", "Ok");
         }
 
         public void OnProperyChanged([CallerMemberName] string propertyName = null)

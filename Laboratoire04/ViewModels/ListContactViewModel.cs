@@ -31,7 +31,6 @@ namespace Laboratoire04.ViewModels
         public async void OnTap(object obj)
         {
             var contact = obj as Contact;
-            //var contactAsJson = JsonConvert.SerializeObject(contact);
             Routing.RegisterRoute(nameof(DetailsContactView), typeof(DetailsContactView));
             await Shell.Current.GoToAsync($"{nameof(DetailsContactView)}?Id={contact.Id}");
         }
