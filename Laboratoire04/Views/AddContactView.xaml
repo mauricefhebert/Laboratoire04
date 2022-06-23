@@ -6,54 +6,42 @@
     xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels"
     Style="{StaticResource ContentPageStyle}">
     <ContentPage.Content>
-        <StackLayout x:Name="AddContactForm" x:DataType="viewModel:AddContactViewModel">
-            <Grid
+        <ScrollView>
+            <StackLayout
+                x:Name="AddContactForm"
                 Margin="10"
-                ColumnDefinitions="1*,1*"
-                RowDefinitions="3*,1*,1*,1*,1*,1*,1*">
+                x:DataType="viewModel:AddContactViewModel">
                 <!--  Photo  -->
-                <Frame Grid.Row="0" Grid.ColumnSpan="2">
-                    <Entry
-                        Placeholder="Photo"
-                        Style="{StaticResource AddContactEntry}"
-                        Text="{Binding Photo}" />
+                <Frame
+                    CornerRadius="100"
+                    HeightRequest="100"
+                    HorizontalOptions="Center"
+                    WidthRequest="100">
+                    <Image Source="{Binding Photo}" Style="{StaticResource DetailsContactPhoto}" />
                 </Frame>
                 <!--  Prenom  -->
-                <Frame
-                    Grid.Row="1"
-                    Grid.ColumnSpan="2"
-                    Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource AddContactFrame}">
                     <Entry
-                        x:Name="Prenom"
                         Placeholder="Prenom"
                         Style="{StaticResource AddContactEntry}"
                         Text="{Binding Prenom}" />
                 </Frame>
                 <!--  Nom  -->
-                <Frame
-                    Grid.Row="2"
-                    Grid.ColumnSpan="2"
-                    Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource AddContactFrame}">
                     <Entry
                         Placeholder="Nom"
                         Style="{StaticResource AddContactEntry}"
                         Text="{Binding Nom}" />
                 </Frame>
                 <!--  Initital  -->
-                <Frame
-                    Grid.Row="3"
-                    Grid.ColumnSpan="2"
-                    Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource AddContactFrame}">
                     <Entry
                         Placeholder="Initial"
                         Style="{StaticResource AddContactEntry}"
                         Text="{Binding Initital}" />
                 </Frame>
                 <!--  Courriel Personnel  -->
-                <Frame
-                    Grid.Row="4"
-                    Grid.ColumnSpan="2"
-                    Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource AddContactFrame}">
                     <Entry
                         Keyboard="Email"
                         Placeholder="Courriel Personnel"
@@ -61,10 +49,7 @@
                         Text="{Binding CourrielPersonnel}" />
                 </Frame>
                 <!--  Courriel Travail  -->
-                <Frame
-                    Grid.Row="5"
-                    Grid.ColumnSpan="2"
-                    Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource AddContactFrame}">
                     <Entry
                         Keyboard="Email"
                         Placeholder="Courriel Travail"
@@ -72,10 +57,7 @@
                         Text="{Binding CourrielTravail}" />
                 </Frame>
                 <!--  Telephone Personnel  -->
-                <Frame
-                    Grid.Row="6"
-                    Grid.ColumnSpan="2"
-                    Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource AddContactFrame}">
                     <Entry
                         Keyboard="Telephone"
                         Placeholder="Telephone Personnel"
@@ -83,30 +65,27 @@
                         Text="{Binding TelephonePersonnel}" />
                 </Frame>
                 <!--  Telephone Travail  -->
-                <Frame
-                    Grid.Row="7"
-                    Grid.ColumnSpan="2"
-                    Style="{StaticResource AddContactFrame}">
+                <Frame Style="{StaticResource AddContactFrame}">
                     <Entry
                         Keyboard="Telephone"
                         Placeholder="Telephone Travail"
                         Style="{StaticResource AddContactEntry}"
                         Text="{Binding TelephoneTravail}" />
                 </Frame>
-                <Button
-                    Grid.Row="8"
-                    Grid.Column="1"
-                    BackgroundColor="{StaticResource CallToAction}"
-                    Command="{Binding AjouterContactCmd}"
-                    Style="{StaticResource AddContactButton}"
-                    Text="Confirmer" />
-                <Button
-                    Grid.Row="8"
-                    Grid.Column="0"
-                    BackgroundColor="DimGray"
-                    Style="{StaticResource AddContactButton}"
-                    Text="Annuler" />
-            </Grid>
-        </StackLayout>
+                <Grid ColumnDefinitions="*,*">
+                    <Button
+                        Grid.Column="1"
+                        BackgroundColor="{StaticResource CallToAction}"
+                        Command="{Binding AjouterContactCmd}"
+                        Style="{StaticResource AddContactButton}"
+                        Text="Confirmer" />
+                    <Button
+                        Grid.Column="0"
+                        BackgroundColor="DimGray"
+                        Style="{StaticResource AddContactButton}"
+                        Text="Annuler" />
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
