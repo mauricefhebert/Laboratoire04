@@ -17,6 +17,17 @@ namespace Laboratoire04.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private Contact contact;
+        Contact Contact 
+        { 
+            get { return contact; } 
+            set
+            {
+                contact = value;
+                OnProperyChanged();
+            }
+        }
+
         private int id;
         public int Id 
         { 
@@ -64,7 +75,14 @@ namespace Laboratoire04.ViewModels
             get { return photo; }
             set
             {
+                if (value == null || value == string.Empty)
+                {
+                    photo = @"https://placebear.com/640/360";
+                }
+                else
+                {
                 photo = value;
+                }
                 OnProperyChanged();
             }
         }
@@ -109,6 +127,8 @@ namespace Laboratoire04.ViewModels
             }
         }
 
+        public ICommand EditContactCmd { get; set; }
+
         public void ApplyQueryAttributes(IDictionary<string, string> query)
         {
             string id = HttpUtility.UrlDecode(query["Id"]);
@@ -117,7 +137,7 @@ namespace Laboratoire04.ViewModels
 
         void LoadContact(string id)
         {
-            Contact contact = ContactDbContext.GetContacts().Find(c => c.Id == int.Parse(id));
+            contact = ContactDbContext.GetContacts().Find(c => c.Id == int.Parse(id));
             this.Id = contact.Id;
             this.Prenom = contact.Prenom;
             this.Nom = contact.Nom;
@@ -131,6 +151,14 @@ namespace Laboratoire04.ViewModels
 
         public DetailsContactViewModel()
         {
+            EditContactCmd = new Command(EditContact);
+        }
+
+        private async void EditContact()
+        {
+            //need contact id
+            Routing.RegisterRoute(nameof(UpdateContactView), typeof(UpdateContactView));
+            await Shell.Current.GoToAsync($"{nameof(UpdateContactView)}?Id={contact.Id}");
         }
 
         public void OnProperyChanged([CallerMemberName] string propertyName = null)

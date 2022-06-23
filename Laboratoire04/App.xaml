@@ -13,6 +13,11 @@
         <Color x:Key="NeutralTextDark">#393E46</Color>
         <Color x:Key="CallToAction">#00ADB5</Color>
 
+        <!--  General Style  -->
+        <Style TargetType="Image">
+            <Setter Property="Aspect" Value="AspectFill" />
+        </Style>
+
         <!--  Content Page Style  -->
         <Style x:Key="ContentPageStyle" TargetType="ContentPage">
             <Setter Property="BackgroundColor" Value="{StaticResource NeutralDark}" />
@@ -50,12 +55,17 @@
             <Setter Property="PlaceholderColor" Value="{StaticResource NeutralTextDark}" />
             <Setter Property="IsReadOnly" Value="True" />
         </Style>
+        <Style x:Key="DetailsContactEntryReadOnlyFalse" TargetType="Entry">
+            <Setter Property="TextColor" Value="{StaticResource NeutralTextDark}" />
+            <Setter Property="PlaceholderColor" Value="{StaticResource NeutralTextDark}" />
+            <Setter Property="IsReadOnly" Value="False" />
+        </Style>
         <Style x:Key="DetailsContactButton" TargetType="Button">
             <Setter Property="CornerRadius" Value="10" />
             <Setter Property="TextColor" Value="White" />
         </Style>
         <Style x:Key="DetailsContactPhoto" TargetType="Image">
-            <Setter Property="Aspect" Value="AspectFit" />
+            <Setter Property="Aspect" Value="AspectFill" />
         </Style>
 
         <!--  Add Contact View Style  -->

@@ -18,14 +18,84 @@ namespace Laboratoire04.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public ICommand TapCmd { get; set; }
 
+        public ListContactViewModel()
+        {
+            TapCmd = new Command(OnTap);
+
+            if (ContactDbContext.GetContacts().Count == 0)
+            {
+                ContactDbContext.AddContact(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placebear.com/640/360",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.AddContact(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placebear.com/640/360",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.AddContact(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placebear.com/640/360",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.AddContact(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placebear.com/640/360",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.AddContact(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placebear.com/640/360",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.AddContact(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placebear.com/640/360",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+            }
+        }
+
         public List<Contact> contacts
         {
             get { return ContactDbContext.GetContacts().OrderBy(x => x.Prenom).ToList(); }
-        }
-        public ListContactViewModel()
-        {
-
-            TapCmd = new Command(OnTap);
         }
 
         public async void OnTap(object obj)

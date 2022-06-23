@@ -1,18 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Laboratoire04.Views.DetailsContactView"
+    x:Class="Laboratoire04.Views.UpdateContactView"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewmodels="clr-namespace:Laboratoire04.ViewModels"
-    x:DataType="viewmodels:DetailsContactViewModel"
+    x:DataType="viewmodels:UpdateContactViewModel"
     Style="{StaticResource ContentPageStyle}">
     <ContentPage.ToolbarItems>
         <ToolbarItem
-            x:Name="ToolBarEditMenu"
-            Command="{Binding EditContactCmd}"
+            Command="{Binding SupprimerContactCmd}"
             Order="Primary"
             Priority="0"
-            Text="Edit" />
+            Text="Supprimer" />
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
@@ -29,21 +28,21 @@
                 <Frame Style="{StaticResource DetailsContactFrame}">
                     <Entry
                         Placeholder="Prenom"
-                        Style="{StaticResource DetailsContactEntry}"
+                        Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding Prenom}" />
                 </Frame>
                 <!--  Nom  -->
                 <Frame Style="{StaticResource DetailsContactFrame}">
                     <Entry
                         Placeholder="Nom"
-                        Style="{StaticResource DetailsContactEntry}"
+                        Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding Nom}" />
                 </Frame>
                 <!--  Initital  -->
                 <Frame Style="{StaticResource DetailsContactFrame}">
                     <Entry
                         Placeholder="Initial"
-                        Style="{StaticResource DetailsContactEntry}"
+                        Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding Initial}" />
                 </Frame>
                 <!--  Courriel Personnel  -->
@@ -51,7 +50,7 @@
                     <Entry
                         Keyboard="Email"
                         Placeholder="Courriel Personnel"
-                        Style="{StaticResource DetailsContactEntry}"
+                        Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding CourrielPersonnel}" />
                 </Frame>
                 <!--  Courriel Travail  -->
@@ -59,7 +58,7 @@
                     <Entry
                         Keyboard="Email"
                         Placeholder="Courriel Travail"
-                        Style="{StaticResource DetailsContactEntry}"
+                        Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding CourrielTravail}" />
                 </Frame>
                 <!--  Telephone Personnel  -->
@@ -67,7 +66,7 @@
                     <Entry
                         Keyboard="Telephone"
                         Placeholder="Telephone Personnel"
-                        Style="{StaticResource DetailsContactEntry}"
+                        Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding TelephonePersonnel}" />
                 </Frame>
                 <!--  Telephone Travail  -->
@@ -75,12 +74,23 @@
                     <Entry
                         Keyboard="Telephone"
                         Placeholder="Telephone Travail"
-                        Style="{StaticResource DetailsContactEntry}"
+                        Style="{StaticResource DetailsContactEntryReadOnlyFalse}"
                         Text="{Binding TelephoneTravail}" />
                 </Frame>
+                <Grid ColumnDefinitions="*,*">
+                    <Button
+                        Grid.Column="1"
+                        BackgroundColor="{StaticResource CallToAction}"
+                        Command="{Binding UpdateContactCmd}"
+                        Style="{StaticResource AddContactButton}"
+                        Text="Confirmer" />
+                    <Button
+                        Grid.Column="0"
+                        BackgroundColor="DimGray"
+                        Style="{StaticResource AddContactButton}"
+                        Text="Annuler" />
+                </Grid>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
-
-<!--  Command="EditCmd"  -->
