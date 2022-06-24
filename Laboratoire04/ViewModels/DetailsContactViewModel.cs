@@ -16,116 +16,24 @@ namespace Laboratoire04.ViewModels
     internal class DetailsContactViewModel : INotifyPropertyChanged, IQueryAttributable
     {
         public event PropertyChangedEventHandler PropertyChanged;
-
-        private Contact contact;
-        Contact Contact 
-        { 
-            get { return contact; } 
-            set
-            {
-                contact = value;
-                OnProperyChanged();
-            }
-        }
-
         private int id;
-        public int Id 
-        { 
-            get { return id; } 
-            set
-            {
-                id = value;
-                OnProperyChanged();
-            }
-        }
-
         private string prenom;
-        public string Prenom 
-        { 
-            get { return prenom; }
-            set
-            {
-                prenom = value;
-                OnProperyChanged();
-            }
-        }
         private string nom;
-        public string Nom 
-        { 
-            get { return nom; }
-            set
-            {
-                nom = value;
-                OnProperyChanged();
-            }
-        }
         private string initial;
-        public string Initial 
-        {   get { return initial; }
-            set
-            {
-                initial = value;
-                OnProperyChanged();
-            }
-        }
-
-        private ImageSource photo;
-        public ImageSource Photo
-        {
-            get { return photo; }
-            set
-            {
-                if (value == null)
-                {
-                    photo = @"https://placebear.com/640/360";
-                }
-                else
-                {
-                photo = value;
-                }
-                OnProperyChanged();
-            }
-        }
-        private string telephonePersonnel;
-        public string TelephonePersonnel
-        {
-            get { return telephonePersonnel; }
-            set
-            {
-                telephonePersonnel = value;
-                OnProperyChanged();
-            }
-        }
-        private string telephoneTravail;
-        public string TelephoneTravail
-        {
-            get { return telephoneTravail; }
-            set
-            {
-                telephoneTravail = value;
-                OnProperyChanged();
-            }
-        }
+        private string photo;
         private string courrielPersonnel;
-        public string CourrielPersonnel
-        {
-            get { return courrielPersonnel; }
-            set
-            {
-                courrielPersonnel = value;
-                OnProperyChanged();
-            }
-        }
         private string courrielTravail;
-        public string CourrielTravail
-        {
-            get { return courrielTravail; }
-            set
-            {
-                courrielTravail = value;
-                OnProperyChanged();
-            }
-        }
+        private string telephonePersonnel;
+        private string telephoneTravail;
+        public int Id { get => id; set { id = value; OnProperyChanged(); } }
+        public string Prenom { get => prenom; set { prenom = value; OnProperyChanged(); } }
+        public string Nom { get => nom; set { nom = value; OnProperyChanged(); } }
+        public string Initial { get => initial; set { initial = value; OnProperyChanged(); } }
+        public string Photo { get => photo; set { photo = value; OnProperyChanged(); } }
+        public string CourrielPersonnel { get => courrielPersonnel; set { courrielPersonnel = value; OnProperyChanged(); } }
+        public string CourrielTravail { get => courrielTravail; set { courrielTravail = value; OnProperyChanged(); } }
+        public string TelephonePersonnel { get => telephonePersonnel; set { telephonePersonnel = value; OnProperyChanged(); } }
+        public string TelephoneTravail { get => telephoneTravail; set { telephoneTravail = value; OnProperyChanged(); } }
 
         public ICommand EditContactCmd { get; set; }
         //Recupere le contact utiliser avec l'interface IQueryAttributable
@@ -137,7 +45,7 @@ namespace Laboratoire04.ViewModels
         //Charge le contact method utiliser avec l'interface IQueryAttributable
         void LoadContact(string id)
         {
-            contact = ContactDbContext.GetContacts().Find(c => c.Id == int.Parse(id));
+            Contact contact = ContactDbContext.GetContacts().Find(c => c.Id == int.Parse(id));
             this.Id = contact.Id;
             this.Prenom = contact.Prenom;
             this.Nom = contact.Nom;
@@ -157,7 +65,7 @@ namespace Laboratoire04.ViewModels
         private async void EditContact()
         {
             Routing.RegisterRoute(nameof(UpdateContactView), typeof(UpdateContactView));
-            await Shell.Current.GoToAsync($"{nameof(UpdateContactView)}?Id={contact.Id}");
+            await Shell.Current.GoToAsync($"{nameof(UpdateContactView)}?Id={this.Id}");
         }
 
         //Permet l'utilisation de PropertyChanged sans specifier la proprieter a changer

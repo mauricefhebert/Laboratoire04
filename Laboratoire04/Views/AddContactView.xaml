@@ -4,6 +4,7 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:viewModel="clr-namespace:Laboratoire04.ViewModels"
+    xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
     Title="Ajouter un contact"
     Style="{StaticResource ContentPageStyle}">
     <ContentPage.Content>
@@ -42,7 +43,7 @@
                         Keyboard="Default"
                         Placeholder="Initial"
                         Style="{StaticResource ContactEntry}"
-                        Text="{Binding Initital}" />
+                        Text="{Binding Initial}" />
                 </Frame>
                 <!--  Courriel Personnel  -->
                 <Frame Style="{StaticResource ContactFrame}">

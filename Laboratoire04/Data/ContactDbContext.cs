@@ -1,4 +1,5 @@
 ﻿using Laboratoire04.Models;
+using Laboratoire04.Views;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace Laboratoire04.Data
             return contacts;
         }
 
-        public static void AddContact(Contact contact)
+        public async static void AddContact(Contact contact)
         {
 
             //Create a new connection to the database the constructor take the Database location that we defined in the App.cs
@@ -41,10 +42,11 @@ namespace Laboratoire04.Data
 
                 //Notify the user of success or failure
                 if (rowsAffected > 0)
-                    Application.Current.MainPage.DisplayAlert("Success", "Le contact à été ajouter avec succes", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Success", "Le contact à été ajouter avec succes", "Ok");
                 else
-                    Application.Current.MainPage.DisplayAlert("Failure", "Erreur lors de l'ajout du contact", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Failure", "Erreur lors de l'ajout du contact", "Ok");
             }
+            await Shell.Current.GoToAsync($"///{nameof(ListContactView)}");
         }
 
         // Cette method est seulement utiliser pour remplir la base de données si elle est vide

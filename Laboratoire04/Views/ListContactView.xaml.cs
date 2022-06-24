@@ -19,6 +19,7 @@ namespace Laboratoire04.Views
         {
             InitializeComponent();
             this.BindingContext = new ListContactViewModel();
+            SeedData();
         }
 
         protected override void OnAppearing()
@@ -27,6 +28,79 @@ namespace Laboratoire04.Views
             //actualiser le binding contexte
             this.BindingContext = null;
             this.BindingContext = new ListContactViewModel();
+        }
+
+        private void SeedData()
+        {
+            if (ContactDbContext.GetContacts().Count == 0)
+            {
+                ContactDbContext.SeedDatabase(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placeimg.com/150/150/people",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.SeedDatabase(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placeimg.com/150/150/people",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.SeedDatabase(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placeimg.com/150/150/people",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.SeedDatabase(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placeimg.com/150/150/people",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.SeedDatabase(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placeimg.com/150/150/people",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+                ContactDbContext.SeedDatabase(new Contact()
+                {
+                    Prenom = "Prenom 01",
+                    Nom = "Nom 01",
+                    Initial = "PN 01",
+                    Photo = @"https://placeimg.com/150/150/people",
+                    TelephonePersonnel = "(555) 555-5555",
+                    TelephoneTravail = "(333) 333-3333",
+                    CourrielPersonnel = "CourrielPersonnel01@hotmail.com",
+                    CourrielTravail = "CourrielTravail01@hotmail.com"
+                });
+            }
         }
     }
 }

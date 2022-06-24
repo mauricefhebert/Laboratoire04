@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Laboratoire04.Data;
+using Laboratoire04.Models;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 

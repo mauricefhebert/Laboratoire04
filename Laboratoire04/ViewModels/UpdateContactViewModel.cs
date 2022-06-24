@@ -1,5 +1,6 @@
 ﻿using Laboratoire04.Data;
 using Laboratoire04.Models;
+using Laboratoire04.Views;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -19,104 +20,23 @@ namespace Laboratoire04.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         private int id;
-        public int Id
-        {
-            get { return id; }
-            set
-            {
-                id = value;
-                OnProperyChanged();
-            }
-        }
-
         private string prenom;
-        public string Prenom
-        {
-            get { return prenom; }
-            set
-            {
-                prenom = value;
-                OnProperyChanged();
-            }
-        }
         private string nom;
-        public string Nom
-        {
-            get { return nom; }
-            set
-            {
-                nom = value;
-                OnProperyChanged();
-            }
-        }
         private string initial;
-        public string Initial
-        {
-            get { return initial; }
-            set
-            {
-                initial = value;
-                OnProperyChanged();
-            }
-        }
-
         private string photo;
-        public string Photo
-        {
-            get { return photo; }
-            set
-            {
-                if (value == null)
-                {
-                    photo = @"https://placebear.com/640/360";
-                }
-                else
-                {
-                    photo = value;
-                }
-                OnProperyChanged();
-            }
-        }
-        private string telephonePersonnel;
-        public string TelephonePersonnel
-        {
-            get { return telephonePersonnel; }
-            set
-            {
-                telephonePersonnel = value;
-                OnProperyChanged();
-            }
-        }
-        private string telephoneTravail;
-        public string TelephoneTravail
-        {
-            get { return telephoneTravail; }
-            set
-            {
-                telephoneTravail = value;
-                OnProperyChanged();
-            }
-        }
         private string courrielPersonnel;
-        public string CourrielPersonnel
-        {
-            get { return courrielPersonnel; }
-            set
-            {
-                courrielPersonnel = value;
-                OnProperyChanged();
-            }
-        }
         private string courrielTravail;
-        public string CourrielTravail
-        {
-            get { return courrielTravail; }
-            set
-            {
-                courrielTravail = value;
-                OnProperyChanged();
-            }
-        }
+        private string telephonePersonnel;
+        private string telephoneTravail;
+        public int Id { get => id; set { id = value; OnProperyChanged(); } }
+        public string Prenom { get => prenom; set { prenom = value; OnProperyChanged(); } }
+        public string Nom { get => nom; set { nom = value; OnProperyChanged(); } }
+        public string Initial { get => initial; set { initial = value; OnProperyChanged(); } }
+        public string Photo { get => photo; set { photo = value; OnProperyChanged(); } }
+        public string CourrielPersonnel { get => courrielPersonnel; set { courrielPersonnel = value; OnProperyChanged(); } }
+        public string CourrielTravail { get => courrielTravail; set { courrielTravail = value; OnProperyChanged(); } }
+        public string TelephonePersonnel { get => telephonePersonnel; set { telephonePersonnel = value; OnProperyChanged(); } }
+        public string TelephoneTravail { get => telephoneTravail; set { telephoneTravail = value; OnProperyChanged(); } }
 
         public ICommand UpdateContactCmd { get; set; }
         public ICommand SupprimerContactCmd { get; set; }
@@ -150,7 +70,7 @@ namespace Laboratoire04.ViewModels
                     else
                         await Application.Current.MainPage.DisplayAlert("Failure", "Le contact n'a pu etre supprimer", "Ok");
                 }
-                await Shell.Current.Navigation.PopToRootAsync();
+                await Shell.Current.GoToAsync($"///{nameof(ListContactView)}");
             }
         }
 
